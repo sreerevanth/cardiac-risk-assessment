@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>PULSE AI</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="theme-dark">
+  <div class="container">
+
+    <header class="header">
+      <h1>PULSE AI</h1>
+      <p>Understand your cardiac health</p>
+    </header>
+
+    <main class="main">
+      <section class="input-panel">
+        <h2>Your Data</h2>
+
+        <form id="healthForm">
+          <input id="age" type="number" placeholder="Age" required />
+          <input id="height" type="number" placeholder="Height (cm)" required />
+          <input id="weight" type="number" placeholder="Weight (kg)" required />
+          <input id="pulse" type="number" placeholder="Max Heart Rate" required />
+          <input id="bp" type="number" placeholder="Systolic BP" required />
+          <input id="chol" type="number" placeholder="Cholesterol" required />
+
+          <select id="sugar">
+            <option value="0">Normal Blood Sugar</option>
+            <option value="1">High Blood Sugar</option>
+          </select>
+
+          <select id="chest">
+            <option value="0">No Exercise Angina</option>
+            <option value="1">Exercise Angina</option>
+          </select>
+
+          <button type="submit">Analyze</button>
+        </form>
+      </section>
+
+     <section class="output-panel">
+  <div id="idleState" class="state">
+    <p class="hint">
+      Enter your data and let the AI analyze your cardiac profile.
+    </p>
+  </div>
+
+  <div id="loadingState" class="state hidden">
+    <div class="pulse-loader">
+      <span></span><span></span><span></span>
+    </div>
+    <p class="loading-text">Analyzing cardiac signals…</p>
+  </div>
+
+  <div id="resultState" class="state hidden"></div>
+</section>
+
+    </main>
+
+  </div>
+
+  <script src="script.js"></script>
+<div class="theme-toggle">
+  <button onclick="setTheme('light')">🌞</button>
+  <button onclick="setTheme('dark')">🌙</button>
+  <button onclick="setTheme('contrast')">⚡</button>
+</div>
+
+</body>
+</html>

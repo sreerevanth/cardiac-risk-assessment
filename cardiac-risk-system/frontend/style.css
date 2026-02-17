@@ -1,0 +1,265 @@
+body.theme-light {
+  --bg: #f8fafc;
+  --panel: #ffffff;
+  --text: #0f172a;
+  --muted: #475569;
+  --accent: #2563eb;
+}
+
+body.theme-dark {
+  --bg: #0b0f14;
+  --panel: #111827;
+  --text: #e5e7eb;
+  --muted: #9ca3af;
+  --accent: #3b82f6;
+}
+
+body.theme-contrast {
+  --bg: #000000;
+  --panel: #000000;
+  --text: #ffffff;
+  --muted: #ffffff;
+  --accent: #ffff00;
+}
+
+
+:root {
+  --bg: #0b0f14;
+  --panel: #111827;
+  --text: #e5e7eb;
+  --muted: #9ca3af;
+  --accent: #3b82f6;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 60px 40px;
+}
+
+.header h1 {
+  font-size: 42px;
+  margin: 0;
+  letter-spacing: -1px;
+}
+
+.header p {
+  margin-top: 6px;
+  color: var(--muted);
+}
+
+.main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  margin-top: 50px;
+}
+
+.input-panel,
+.output-panel {
+  background: var(--panel);
+  border-radius: 16px;
+  padding: 32px;
+}
+
+.input-panel h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 20px;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 14px;
+  margin-bottom: 14px;
+  border-radius: 10px;
+  border: none;
+  background: #020617;
+  color: var(--text);
+  font-size: 14px;
+}
+
+input::placeholder {
+  color: #6b7280;
+}
+
+button {
+  width: 100%;
+  padding: 14px;
+  border-radius: 10px;
+  border: none;
+  background: var(--accent);
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+.output-panel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hint {
+  color: var(--muted);
+  font-size: 16px;
+  text-align: center;
+  max-width: 280px;
+}
+.state {
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(6px);
+  display: none;
+}
+
+/* Spinner */
+.spinner {
+  width: 42px;
+  height: 42px;
+  border: 3px solid #1e293b;
+  border-top: 3px solid var(--accent);
+  border-radius: 50%;
+  animation: spin 0.9s linear infinite;
+  margin: 0 auto 14px;
+}
+
+.loading-text {
+  color: var(--muted);
+  font-size: 15px;
+}
+.theme-toggle {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  display: flex;
+  gap: 10px;
+  background: var(--panel);
+  padding: 10px;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.theme-toggle button {
+  background: transparent;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  color: var(--text);
+  padding: 6px;
+  border-radius: 8px;
+}
+
+.theme-toggle button:hover {
+  background: var(--accent);
+  color: white;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.state {
+  text-align: center;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.hidden {
+  display: none;
+}
+
+.pulse-loader {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.pulse-loader span {
+  width: 10px;
+  height: 10px;
+  background: var(--accent);
+  border-radius: 50%;
+  animation: pulse 1.2s infinite ease-in-out;
+}
+
+.pulse-loader span:nth-child(2) {
+  animation-delay: 0.15s;
+}
+.pulse-loader span:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 0.6; }
+  50% { transform: scale(1.6); opacity: 1; }
+  100% { transform: scale(1); opacity: 0.6; }
+}
+
+.loading-text {
+  color: var(--muted);
+  font-size: 15px;
+}
+.risk-visual {
+  margin-top: 24px;
+  display: flex;
+  justify-content: center;
+}
+
+canvas {
+  max-width: 180px;
+}
+/* AI Advice Loader */
+.ai-loader {
+  width: 36px;
+  height: 36px;
+  border: 3px solid rgba(255,255,255,0.15);
+  border-top: 3px solid var(--accent);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 14px auto;
+}
+
+.ai-advice {
+  padding: 14px 16px;
+  border-radius: 12px;
+  background: rgba(59,130,246,0.08);
+  border: 1px solid rgba(59,130,246,0.25);
+  animation: fadeGlow 0.6s ease;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes fadeGlow {
+  from {
+    opacity: 0;
+    box-shadow: 0 0 0 rgba(59,130,246,0);
+  }
+  to {
+    opacity: 1;
+    box-shadow: 0 0 18px rgba(59,130,246,0.25);
+  }
+}
