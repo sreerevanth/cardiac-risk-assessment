@@ -2,71 +2,264 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>PULSE AI</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PULSE AI - Cardiac Health Assessment</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style2.css" />
 </head>
 
 <body class="theme-dark">
-  <div class="container">
+  <!-- Animated Background Ambience -->
+  <div class="ambience-layer"></div>
 
+  <div class="container">
+    
+    <!-- Header -->
     <header class="header">
-      <h1>PULSE AI</h1>
-      <p>Understand your cardiac health</p>
+      <div class="brand">
+        <div class="brand-icon">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+            <path d="M16 4L20 12L28 16L20 20L16 28L12 20L4 16L12 12L16 4Z" fill="currentColor" opacity="0.9"/>
+          </svg>
+        </div>
+        <div>
+          <h1>PULSE AI</h1>
+          <p class="tagline">Clinical Cardiac Risk Assessment</p>
+        </div>
+      </div>
+      <div class="header-badge">
+        <span class="badge-dot"></span>
+        AI-Powered Analysis
+      </div>
     </header>
 
+    <!-- Main Content -->
     <main class="main">
+      
+      <!-- Input Panel -->
       <section class="input-panel">
-        <h2>Your Data</h2>
+        <div class="panel-header">
+          <h2>Patient Information</h2>
+          <p class="panel-subtitle">Complete all fields for accurate assessment</p>
+        </div>
 
         <form id="healthForm">
-          <input id="age" type="number" placeholder="Age" required />
-          <input id="height" type="number" placeholder="Height (cm)" required />
-          <input id="weight" type="number" placeholder="Weight (kg)" required />
-          <input id="pulse" type="number" placeholder="Max Heart Rate" required />
-          <input id="bp" type="number" placeholder="Systolic BP" required />
-          <input id="chol" type="number" placeholder="Cholesterol" required />
+          
+          <!-- Demographic Section -->
+          <div class="form-section">
+            <div class="section-label">
+              <span class="section-icon">👤</span>
+              <span>Demographics</span>
+            </div>
+            <div class="form-group">
+              <label for="age">Age</label>
+              <div class="input-wrapper">
+                <input id="age" type="number" placeholder="e.g., 45" min="1" max="120" required />
+                <span class="input-unit">years</span>
+              </div>
+            </div>
+          </div>
 
-          <select id="sugar">
-            <option value="0">Normal Blood Sugar</option>
-            <option value="1">High Blood Sugar</option>
-          </select>
+          <!-- Body Metrics Section -->
+          <div class="form-section">
+            <div class="section-label">
+              <span class="section-icon">📏</span>
+              <span>Body Metrics</span>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="height">Height</label>
+                <div class="input-wrapper">
+                  <input id="height" type="number" placeholder="170" min="50" max="250" required />
+                  <span class="input-unit">cm</span>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="weight">Weight</label>
+                <div class="input-wrapper">
+                  <input id="weight" type="number" placeholder="70" min="20" max="300" required />
+                  <span class="input-unit">kg</span>
+                </div>
+              </div>
+            </div>
+          </div>
 
-          <select id="chest">
-            <option value="0">No Exercise Angina</option>
-            <option value="1">Exercise Angina</option>
-          </select>
+          <!-- Vital Signs Section -->
+          <div class="form-section">
+            <div class="section-label">
+              <span class="section-icon">💓</span>
+              <span>Cardiac Vitals</span>
+            </div>
+            <div class="form-group">
+              <label for="pulse">Maximum Heart Rate</label>
+              <div class="input-wrapper">
+                <input id="pulse" type="number" placeholder="150" min="40" max="220" required />
+                <span class="input-unit">bpm</span>
+              </div>
+              <span class="field-hint">Highest recorded during exercise</span>
+            </div>
+            <div class="form-group">
+              <label for="bp">Systolic Blood Pressure</label>
+              <div class="input-wrapper">
+                <input id="bp" type="number" placeholder="120" min="70" max="200" required />
+                <span class="input-unit">mmHg</span>
+              </div>
+              <span class="field-hint">Upper number in BP reading</span>
+            </div>
+            <div class="form-group">
+              <label for="chol">Total Cholesterol</label>
+              <div class="input-wrapper">
+                <input id="chol" type="number" placeholder="200" min="100" max="400" required />
+                <span class="input-unit">mg/dL</span>
+              </div>
+            </div>
+          </div>
 
-          <button type="submit">Analyze</button>
+          <!-- Clinical Indicators Section -->
+          <div class="form-section">
+            <div class="section-label">
+              <span class="section-icon">🔬</span>
+              <span>Clinical Indicators</span>
+            </div>
+            <div class="form-group">
+              <label for="sugar">Fasting Blood Sugar</label>
+              <select id="sugar" required>
+                <option value="0">Normal (&lt;120 mg/dL)</option>
+                <option value="1">Elevated (≥120 mg/dL)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="chest">Exercise-Induced Angina</label>
+              <select id="chest" required>
+                <option value="0">No chest pain during exercise</option>
+                <option value="1">Chest pain during exercise</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Submit Button -->
+          <button type="submit" class="btn-primary">
+            <span class="btn-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M9 11l3 3L22 4"/>
+                <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/>
+              </svg>
+            </span>
+            <span>Begin Analysis</span>
+          </button>
+
+          <!-- Progress Indicator -->
+          <div class="form-footer">
+            <div class="progress-steps">
+              <div class="step active">Data Entry</div>
+              <div class="step">AI Analysis</div>
+              <div class="step">Results</div>
+            </div>
+          </div>
         </form>
       </section>
 
-     <section class="output-panel">
-  <div id="idleState" class="state">
-    <p class="hint">
-      Enter your data and let the AI analyze your cardiac profile.
-    </p>
-  </div>
+      <!-- Output Panel -->
+      <section class="output-panel">
+        
+        <!-- Idle State -->
+        <div id="idleState" class="state">
+          <div class="idle-illustration">
+            <svg width="120" height="120" viewBox="0 0 120 120" fill="none">
+              <circle cx="60" cy="60" r="50" stroke="currentColor" stroke-width="2" opacity="0.2"/>
+              <circle cx="60" cy="60" r="35" stroke="currentColor" stroke-width="2" opacity="0.3"/>
+              <circle cx="60" cy="60" r="20" stroke="currentColor" stroke-width="2" opacity="0.4"/>
+              <circle cx="60" cy="60" r="4" fill="currentColor" opacity="0.6"/>
+            </svg>
+          </div>
+          <h3 class="idle-title">Ready for Assessment</h3>
+          <p class="idle-text">
+            Enter patient data in the form to generate an AI-powered cardiac risk profile. 
+            All calculations are performed using validated clinical models.
+          </p>
+          <div class="idle-features">
+            <div class="feature-item">
+              <span class="feature-icon">✓</span>
+              <span>Real-time BMI calculation</span>
+            </div>
+            <div class="feature-item">
+              <span class="feature-icon">✓</span>
+              <span>Risk stratification</span>
+            </div>
+            <div class="feature-item">
+              <span class="feature-icon">✓</span>
+              <span>AI-generated insights</span>
+            </div>
+          </div>
+        </div>
 
-  <div id="loadingState" class="state hidden">
-    <div class="pulse-loader">
-      <span></span><span></span><span></span>
-    </div>
-    <p class="loading-text">Analyzing cardiac signals…</p>
-  </div>
+        <!-- Loading State -->
+        <div id="loadingState" class="state hidden">
+          <div class="loading-container">
+            <div class="pulse-loader">
+              <span></span><span></span><span></span>
+            </div>
+            <h3 class="loading-title">Processing Assessment</h3>
+            <div class="loading-stages">
+              <div class="stage stage-1">Validating patient data</div>
+              <div class="stage stage-2">Computing risk factors</div>
+              <div class="stage stage-3">Generating AI insights</div>
+            </div>
+          </div>
+        </div>
 
-  <div id="resultState" class="state hidden"></div>
-</section>
+        <!-- Result State -->
+        <div id="resultState" class="state hidden"></div>
+
+      </section>
 
     </main>
 
+    <!-- Medical Disclaimer -->
+    <footer class="disclaimer">
+      <div class="disclaimer-icon">⚕️</div>
+      <div class="disclaimer-content">
+        <strong>Medical Disclaimer:</strong> This tool provides AI-assisted risk assessment for educational and informational purposes only. It does not constitute medical advice, diagnosis, or treatment. Always consult qualified healthcare professionals for medical decisions.
+      </div>
+    </footer>
+
   </div>
 
-  <script src="script.js"></script>
-<div class="theme-toggle">
-  <button onclick="setTheme('light')">🌞</button>
-  <button onclick="setTheme('dark')">🌙</button>
-  <button onclick="setTheme('contrast')">⚡</button>
-</div>
+  <!-- Theme Toggle -->
+  <div class="theme-toggle">
+    <button onclick="setTheme('light')" title="Light Mode" aria-label="Light Mode">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="12" r="5"/>
+        <line x1="12" y1="1" x2="12" y2="3"/>
+        <line x1="12" y1="21" x2="12" y2="23"/>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+        <line x1="1" y1="12" x2="3" y2="12"/>
+        <line x1="21" y1="12" x2="23" y2="12"/>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+      </svg>
+    </button>
+    <button onclick="setTheme('dark')" title="Dark Mode" aria-label="Dark Mode">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+      </svg>
+    </button>
+    <button onclick="setTheme('contrast')" title="High Contrast" aria-label="High Contrast">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="12" r="10"/>
+        <path d="M12 2v20"/>
+      </svg>
+    </button>
+    <button onclick="setTheme('obsidian')" title="Obsidian Purple" aria-label="Obsidian Purple" class="theme-premium">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+      </svg>
+    </button>
+  </div>
 
+  <script src="script2.js"></script>
 </body>
 </html>
