@@ -22,7 +22,6 @@
   --glow: 0 0 30px rgba(0,230,118,0.25);
   --glow-strong: 0 0 60px rgba(0,230,118,0.4);
 }
-
 *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
 html { scroll-behavior:smooth; }
 
@@ -47,8 +46,6 @@ body::after {
   pointer-events: none;
   z-index: 9998;
 }
-
-
 #prog {
   position: fixed;
   top: 0; left: 0;
@@ -60,7 +57,6 @@ body::after {
   transition: width 0.08s linear;
 }
 
-/* ─── NAV ─── */
 nav {
   position: fixed;
   top: 0; left: 0; right: 0;
@@ -176,7 +172,6 @@ nav.sticky {
   to { background-position: 0 50px; }
 }
 
-/* Radial glow */
 .hero-glow {
   position: absolute;
   right: -100px; top: 50%;
@@ -191,7 +186,6 @@ nav.sticky {
   50% { transform: translateY(-50%) scale(1.1); opacity:0.7; }
 }
 
-/* ECG Hero Canvas */
 #ecg-canvas {
   position: absolute;
   bottom: 0; left: 0; right: 0;
