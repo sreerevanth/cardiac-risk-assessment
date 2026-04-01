@@ -1,8 +1,8 @@
 # Pulse AI - Cardiac Risk Assessment System
-
 **Pulse AI** is an intelligent cardiac risk assessment platform that leverages machine learning and advanced data analysis to predict and evaluate cardiovascular health risks. This system combines modern frontend and backend technologies to provide healthcare professionals and patients with accurate, real-time cardiac health insights.
 
 ## 🎯 Project Overview
+
 
 Pulse AI is a comprehensive solution designed to:
 - **Assess Cardiac Risk**: Evaluate cardiovascular health using advanced algorithms
